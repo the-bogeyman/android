@@ -31,7 +31,7 @@ check_dirs()
 
 check_saved_data_volt()
 {
-    if [ $1 -eq 404 ]
+    if [ "$1" == 404 ]
     then
         rm $data_sd_dir/saved.volt.location
     fi
@@ -40,7 +40,8 @@ check_saved_data_volt()
     do
         if [ ! -f $data_sd_dir/saved.volt.location ]
         then 
-            clear
+            
+            
             echo Volt location not saved.
             echo Please locate your volt...
             read i
@@ -66,7 +67,7 @@ check_saved_data_volt()
 
 check_saved_data_mount_dir()
 {
-    if [ $1 -eq 404 ]
+    if [ "$1" == 404 ]
     then
         rm $data_sd_dir/saved.mount.directory 
     fi 
@@ -217,7 +218,7 @@ mount_volt()
 main()
 {
     load_defaults
-    if [ $1 == clean ]
+    if [ "$1" == clean ]
     then
         wipe_saved_data
     fi
